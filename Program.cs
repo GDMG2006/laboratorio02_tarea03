@@ -12,7 +12,7 @@ namespace ConsoleApp3
         internal class Program
         {
             // Matrices ya existentes (tu compañero)
-            static string[,] Encuesta = new string[8, 8]; // Ejemplo tamaño
+            static string[,] Encuesta ; // Ejemplo tamaño
             static int indiceEncuesta = 0;
 
             static string[,] Pregunta = new string[8, 8];
@@ -27,9 +27,24 @@ namespace ConsoleApp3
 
             static string[,] Estudiantes = new string[5, 7];
             static int indiceEstudiantes = 0;
+       
 
-            static void Main()
+        static void Main()
             {
+            
+                Console.Write("Ingrese la cantidad de encuestas que desea hacer: ");
+                int cantidadEncuestas;
+
+                if (int.TryParse(Console.ReadLine(), out cantidadEncuestas) && cantidadEncuestas > 0)
+                {
+                    Encuesta = new string[cantidadEncuestas, 8]; // Se inicializa con el tamaño definido por el usuario
+                    Console.WriteLine($"Matriz de encuestas creada con tamaño {cantidadEncuestas}x8.");
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Debe ingresar un número positivo.");
+                }
+
                 int opcion;
                 do
                 {
@@ -128,25 +143,18 @@ namespace ConsoleApp3
                 i++;
                 Console.WriteLine("\n------ Repuestas ------");
                 Console.WriteLine("1. Nombre de la Encuesta?");
-                Console.WriteLine("Ingrese la respuesta para la pregunta " + i++);
                 Encuesta[indiceEncuesta, 0] = Console.ReadLine();
                 Console.WriteLine("2. Codigo de la Encuesta?");
-                Console.WriteLine("Ingrese la respuesta para la pregunta " + i++);
                 Encuesta[indiceEncuesta, 1] = Console.ReadLine();
                 Console.WriteLine("3. Proposito de la encuesta?");
-                Console.WriteLine("Ingrese la respuesta para la pregunta " + i++);
                 Encuesta[indiceEncuesta, 2] = Console.ReadLine();
                 Console.WriteLine("4. Fecha de inicio de la Encuesta?");
-                Console.WriteLine("Ingrese la respuesta para la pregunta " + i++);
                 Encuesta[indiceEncuesta, 3] = Console.ReadLine();
                 Console.WriteLine("5. Fecha final de la Encuesta?");
-                Console.WriteLine("Ingrese la respuesta para la pregunta " + i++);
                 Encuesta[indiceEncuesta, 4] = Console.ReadLine();
                 Console.WriteLine("6. Tamaño de la muestra?");
-                Console.WriteLine("Ingrese la respuesta para la pregunta " + i++);
                 Encuesta[indiceEncuesta, 5] = Console.ReadLine();
                 Console.WriteLine("7. Formato de preguntas?");
-                Console.WriteLine("Ingrese la respuesta para la pregunta " + i++);
                 Encuesta[indiceEncuesta,7] = Console.ReadLine();
 
 
